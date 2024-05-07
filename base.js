@@ -28,8 +28,7 @@ const webpackPreprocessorLoader = {
   loader: 'webpack-preprocessor-loader',
   options: {
     params: {
-      SSR_MODE: isSSR,
-      ENGINE_STYLES_IN_JS: !!process.env.ENGINE_STYLES_IN_JS
+      SSR_MODE: isSSR
     }
   }
 }
@@ -38,8 +37,7 @@ const plugins = [
   new VueLoaderPlugin(),
   new Dotenv(),
   new webpack.DefinePlugin({
-    'process.env.SSR_MODE': isSSR,
-    'process.env.PROJECT': JSON.stringify(process.env.PROJECT)
+    'process.env.SSR_MODE': isSSR
   })
 ]
 
@@ -72,20 +70,11 @@ module.exports = {
     alias: {
       vue: path.resolve('./node_modules/vue'),
       'vue-router': path.resolve('./node_modules/vue-router'),
-      'vuetify/lib/styles': path.resolve('./node_modules/vuetify/lib/styles'),
-      'vuetify/iconsets/mdi-svg': path.resolve('./node_modules/vuetify/lib/iconsets/mdi-svg.mjs'),
-      'vuetify/labs/VDataTable': path.resolve('./node_modules/vuetify/lib/labs/VDataTable'),
-      'vuetify/framework': path.resolve('./node_modules/vuetify/lib/framework.mjs'),
-      'vuetify/components': path.resolve('./node_modules/vuetify/lib/components'),
-      'vuetify/directives': path.resolve('./node_modules/vuetify/lib/directives'),
-      'vuetify/composables': path.resolve('./node_modules/vuetify/lib/composables'),
       'number-abbreviate': path.resolve('./node_modules/number-abbreviate'),
       lodash: path.resolve('./node_modules/lodash'),
       'js-cookie': path.resolve('./node_modules/js-cookie'),
       'is-mobile': path.resolve('./node_modules/is-mobile'),
       axios: path.resolve('./node_modules/axios'),
-      '@xcode/icons': path.resolve('./node_modules/@xcode/icons'),
-      '@xcode/ui-kit': path.resolve('./node_modules/@xcode/ui-kit'),
       '@vue/babel-helper-vue-transform-on': path.resolve(
         './node_modules/@vue/babel-helper-vue-transform-on'
       )
